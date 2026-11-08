@@ -1,6 +1,6 @@
 ---
 role: "Mathematics PhD student at UNSW Sydney"
-bio: "My research combines numerical and functional analysis to develop computer-assisted proofs for nonlinear partial differential equations arising in differential geometry. I explore how machine learning can help find approximate solutions. I use validated numerics to prove that an exact solution exists nearby and give an explicit bound on the approximation error."
+bio: "My research combines numerical and functional analysis to develop computer-assisted proofs for nonlinear partial differential equations arising in differential geometry."
 portrait: "/assets/profile.jpg"
 cv: "/assets/CVWill.pdf"
 github: "https://github.com/william-hadden"
@@ -10,6 +10,7 @@ paper:
   authors: "Timothy Buttsworth, William Hadden, Elli Heyes, Daniel Platt, and Toby Wiseman"
   year: 2026
   arxiv: "https://arxiv.org/abs/2609.32655"
+  code: "https://github.com/william-hadden/toric-verified-numerics"
 thesis:
   title: "U(2)-Invariant Ricci Solitons on Four Manifolds"
   year: 2024
@@ -21,6 +22,11 @@ talks:
     title: "Einstein Metrics on Four-Manifolds"
     date: "2026-08-10"
     url: "https://www.unsw.edu.au/content/dam/pdfs/science/math-stats/events/Postgraduate%20Conference%202026%20Schedule%20of%20Events.pdf"
+    slides: "/assets/Postgraduate_Conference_Presentation.pdf"
+  - event: "OzGeomPDE Student Symposium"
+    title: "An Introduction to Polar Manifolds and Actions"
+    event_dates: "18-22 May 2026"
+    url: "https://www.matrix-inst.org.au/events/phd-student-symposium-ozgeompde-student-symposium/"
   - event: "Analytic and Geometric Methods on Complex Manifolds (MATRIX)"
     title: "" # Add the MATRIX talk title here.
     date: "2026-02-18"
@@ -84,7 +90,10 @@ talks:
       <article>
         <h3><a href="{{ page.paper.arxiv | escape }}">{{ page.paper.title | escape }}</a></h3>
         <p class="authors">{{ page.paper.authors | escape }}</p>
-        <p class="publication">{{ page.paper.year }} · arXiv preprint</p>
+        <p class="publication">
+          {{ page.paper.year }} · arXiv preprint ·
+          <a href="{{ page.paper.code | escape }}">Code</a>
+        </p>
       </article>
 
       <article>
@@ -98,8 +107,7 @@ talks:
 
       {% if page.amsi_scholarship_url and page.amsi_scholarship_url != empty %}
         <article>
-          <h3>AMSI scholarship</h3>
-          <p><a href="{{ page.amsi_scholarship_url | escape }}">AMSI grant recipient profile</a></p>
+          <h3><a href="{{ page.amsi_scholarship_url | escape }}">AMSI scholarship</a></h3>
         </article>
       {% endif %}
 
@@ -113,7 +121,14 @@ talks:
               {% endif %}
               <div class="publication">
                 <a href="{{ talk.url | escape }}">{{ talk.event | escape }}</a> ·
-                <time datetime="{{ talk.date | escape }}">{{ talk.date | date: "%-d %B %Y" }}</time>
+                {% if talk.event_dates %}
+                  {{ talk.event_dates | escape }}
+                {% else %}
+                  <time datetime="{{ talk.date | escape }}">{{ talk.date | date: "%-d %B %Y" }}</time>
+                {% endif %}
+                {% if talk.slides and talk.slides != empty %}
+                  · <a href="{{ talk.slides | relative_url | escape }}">Slides</a>
+                {% endif %}
               </div>
             </li>
           {% endfor %}
