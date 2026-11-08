@@ -21,7 +21,7 @@
 title: William Hadden
 email: williamhadden92@gmail.com
 baseurl: "/williamhadden" # the subpath of your site, e.g. /blog
-domain: "whadden.github.io" # the base hostname without protocol for your site, e.g. example.com
+domain: "william-hadden.github.io" # the base hostname without protocol for your site, e.g. example.com
 url: "https://whadden.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 linkedin_username: william-hadden-963b82179
