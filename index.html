@@ -1,8 +1,8 @@
 ---
-role: ""
-bio: ""
-portrait: ""
-cv: ""
+role: "Mathematics PhD student at UNSW Sydney"
+bio: "My research combines numerical and functional analysis to develop computer-assisted proofs for nonlinear partial differential equations arising in differential geometry. I explore how machine learning can help find approximate solutions. I use validated numerics to prove that an exact solution exists nearby and give an explicit bound on the approximation error."
+portrait: "/assets/profile.jpg"
+cv: "/assets/CVWill.pdf"
 github: "https://github.com/william-hadden"
 linkedin: "https://www.linkedin.com/in/william-hadden-963b82179/"
 paper:
@@ -10,6 +10,29 @@ paper:
   authors: "Timothy Buttsworth, William Hadden, Elli Heyes, Daniel Platt, and Toby Wiseman"
   year: 2026
   arxiv: "https://arxiv.org/abs/2609.32655"
+thesis:
+  title: "U(2)-Invariant Ricci Solitons on Four Manifolds"
+  year: 2024
+  pdf: "/assets/Thesis_formatted.pdf"
+  slides: "/assets/Thesis_Presentation.pdf"
+amsi_scholarship_url: "" # Add the official AMSI page naming you as a recipient.
+talks:
+  - event: "UNSW Mathematics and Statistics Postgraduate Conference"
+    title: "Einstein Metrics on Four-Manifolds"
+    date: "2026-08-10"
+    url: "https://www.unsw.edu.au/content/dam/pdfs/science/math-stats/events/Postgraduate%20Conference%202026%20Schedule%20of%20Events.pdf"
+  - event: "Analytic and Geometric Methods on Complex Manifolds (MATRIX)"
+    title: "" # Add the MATRIX talk title here.
+    date: "2026-02-18"
+    url: "https://www.matrix-inst.org.au/events/analytic-and-geometric-methods-on-complex-manifolds/"
+  - event: "Australian Mathematical Society Annual Meeting"
+    title: "A Computationally Assisted Proof of the Kähler-Einstein Metric on the Third del Pezzo Surface"
+    date: "2025-12-09"
+    url: "https://austms2025.org.au/session-timetable-viewer/#:~:text=Mr%20William%20Hadden"
+  - event: "UNSW Pure Mathematics Seminar"
+    title: "A Computationally Assisted Proof of the Kähler-Einstein Metric on the Third del Pezzo Surface"
+    date: "2025-11-18"
+    url: "https://www.unsw.edu.au/science/our-schools/maths/engage-with-us/seminars/2025/A-Computationally-Assisted-Proof-of-the-Kahler-Einstein-Metric-on-the-Third-del-PezzoSurface"
 ---
 <!doctype html>
 <html lang="en-AU">
@@ -63,6 +86,40 @@ paper:
         <p class="authors">{{ page.paper.authors | escape }}</p>
         <p class="publication">{{ page.paper.year }} · arXiv preprint</p>
       </article>
+
+      <article>
+        <h3>{{ page.thesis.title | escape }}</h3>
+        <p class="publication">
+          {{ page.thesis.year }} · Master's thesis, UNSW Sydney ·
+          <a href="{{ page.thesis.pdf | relative_url | escape }}">Thesis (PDF)</a> ·
+          <a href="{{ page.thesis.slides | relative_url | escape }}">Slides (PDF)</a>
+        </p>
+      </article>
+
+      <p class="publication">
+        {% if page.amsi_scholarship_url and page.amsi_scholarship_url != empty %}
+          <a href="{{ page.amsi_scholarship_url | escape }}">AMSI scholarship recipient</a>
+        {% else %}
+          <span class="placeholder">[Add AMSI scholarship announcement link]</span>
+        {% endif %}
+      </p>
+
+      <section class="talks" aria-labelledby="talks-heading">
+        <h3 id="talks-heading">Talks</h3>
+        <ul>
+          {% for talk in page.talks %}
+            <li>
+              {% if talk.title and talk.title != empty %}
+                <div>{{ talk.title | escape }}</div>
+              {% endif %}
+              <div class="publication">
+                <a href="{{ talk.url | escape }}">{{ talk.event | escape }}</a> ·
+                <time datetime="{{ talk.date | escape }}">{{ talk.date | date: "%-d %B %Y" }}</time>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
     </section>
   </main>
 </body>
