@@ -1,11 +1,10 @@
 :root {
   color-scheme: light;
-  --paper: #f9f8f3;
   --ink: #202821;
   --muted: #555f55;
   --accent: #205b48;
   --rule: #d4d9cd;
-  background: var(--paper);
+  background: #fff;
   color: var(--ink);
   font: 100% / 1.6 system-ui, sans-serif;
 }
@@ -39,7 +38,6 @@ body {
 .portrait.placeholder {
   display: grid;
   place-items: center;
-  background: #edf0e7;
   border-style: dashed;
   text-align: center;
   font-size: 0.875rem;
