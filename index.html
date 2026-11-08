@@ -1,0 +1,69 @@
+---
+role: ""
+bio: ""
+portrait: ""
+cv: ""
+github: "https://github.com/william-hadden"
+linkedin: "https://www.linkedin.com/in/william-hadden-963b82179/"
+paper:
+  title: "The Kähler-Einstein metric on the third Del Pezzo surface"
+  authors: "Timothy Buttsworth, William Hadden, Elli Heyes, Daniel Platt, and Toby Wiseman"
+  year: 2026
+  arxiv: "https://arxiv.org/abs/2609.32655"
+---
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title | escape }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}">
+</head>
+<body>
+  <main class="page">
+    <header class="profile">
+      {% if page.portrait and page.portrait != empty %}
+        <img class="portrait" src="{{ page.portrait | relative_url | escape }}" alt="{{ site.title | escape }}">
+      {% else %}
+        <div class="portrait placeholder">[Add portrait]</div>
+      {% endif %}
+
+      <div>
+        <h1>{{ site.title | escape }}</h1>
+        {% if page.role and page.role != empty %}
+          <p class="role">{{ page.role | escape }}</p>
+        {% else %}
+          <p class="role placeholder">[Add role and affiliation]</p>
+        {% endif %}
+        <nav class="profile-links" aria-label="Profile links">
+          <a href="{{ page.github | escape }}">GitHub</a>
+          <a href="{{ page.linkedin | escape }}">LinkedIn</a>
+          {% if page.cv and page.cv != empty %}
+            <a href="{{ page.cv | relative_url | escape }}">CV (PDF)</a>
+          {% else %}
+            <span class="placeholder">[Add CV PDF]</span>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      {% if page.bio and page.bio != empty %}
+        {{ page.bio | markdownify }}
+      {% else %}
+        <p class="placeholder">[Add a short bio]</p>
+      {% endif %}
+    </section>
+
+    <section aria-labelledby="research-heading">
+      <h2 id="research-heading">Research</h2>
+      <article>
+        <h3><a href="{{ page.paper.arxiv | escape }}">{{ page.paper.title | escape }}</a></h3>
+        <p class="authors">{{ page.paper.authors | escape }}</p>
+        <p class="publication">{{ page.paper.year }} · arXiv preprint</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
