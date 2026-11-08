@@ -17,6 +17,25 @@ thesis:
   pdf: "/assets/Thesis_formatted.pdf"
   slides: "/assets/Thesis_Presentation.pdf"
 amsi_scholarship_url: "https://rhed.amsi.org.au/amsi-grant-recipient-profile-william-hadden/"
+metric_plots:
+  - image: "/assets/clw_metric.png"
+    caption: "Chen–LeBrun–Weber metric"
+    manifold: >-
+      <math><msup><mi>ℂℙ</mi><mn>2</mn></msup><mo>#</mo><mn>2</mn><mover accent="true"><msup><mi>ℂℙ</mi><mn>2</mn></msup><mo>¯</mo></mover></math>
+    paper: "https://arxiv.org/abs/0705.0710"
+    paper_label: "Chen, LeBrun and Weber"
+  - image: "/assets/dp3_metric.png"
+    caption: "Kähler–Einstein metric on the third del Pezzo surface"
+    manifold: >-
+      <math><msup><mi>ℂℙ</mi><mn>2</mn></msup><mo>#</mo><mn>3</mn><mover accent="true"><msup><mi>ℂℙ</mi><mn>2</mn></msup><mo>¯</mo></mover></math>
+    paper: "https://arxiv.org/abs/2609.32655"
+    paper_label: "Buttsworth et al."
+  - image: "/assets/hex_alternating_metric.png"
+    caption: "Toric Einstein candidate with alternating stabilizers"
+    manifold: >-
+      <math><msub><mo>#</mo><mn>2</mn></msub><mo>(</mo><msup><mi>S</mi><mn>2</mn></msup><mo>×</mo><msup><mi>S</mi><mn>2</mn></msup><mo>)</mo></math>
+    paper: "https://arxiv.org/html/2610.10425v2#S4.SS1"
+    paper_label: "Li–Sun on the underlying topology"
 talks:
   - event: "UNSW Mathematics and Statistics Postgraduate Conference"
     title: "Einstein Metrics on Four-Manifolds"
@@ -109,6 +128,7 @@ talks:
       {% if page.amsi_scholarship_url and page.amsi_scholarship_url != empty %}
         <article>
           <h3><a href="{{ page.amsi_scholarship_url | escape }}">AMSI scholarship</a></h3>
+          <p class="publication">AMSI Winter School Travel Grant</p>
         </article>
       {% endif %}
 
@@ -135,6 +155,27 @@ talks:
           {% endfor %}
         </ul>
       </section>
+    </section>
+
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <p>Each figure shows six components of a numerical metric over a polygon representing the quotient of a four-manifold by a torus action. The colours show how the components vary across the polygon.</p>
+      <p>These figures show components of numerical metric approximations from my PhD. I hope to make this code available soon, but if you'd like access in the meantime, please <a href="{{ page.linkedin | escape }}">contact me on LinkedIn</a>.</p>
+      <div class="metric-gallery">
+        {% for plot in page.metric_plots %}
+          {% assign image_url = plot.image | relative_url | escape %}
+          <figure>
+            <a href="{{ image_url }}">
+              <img src="{{ image_url }}" width="3000" height="1800" loading="lazy" alt="View full-size metric component plots: {{ plot.caption | escape }}">
+            </a>
+            <figcaption>
+              {{ plot.caption | escape }}<br>
+              {{ plot.manifold }}<br>
+              <a href="{{ plot.paper | escape }}">{{ plot.paper_label | escape }}</a>
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </div>
     </section>
   </main>
 </body>
