@@ -23,6 +23,19 @@ body {
   display: flex;
   align-items: center;
   gap: clamp(1.25rem, 4vw, 2.75rem);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background: linear-gradient(#0009, #0009), url("../blackhole.jpg") center 45% / cover no-repeat;
+  background-color: #181515;
+  color: #fff;
+  border-radius: 0.25rem;
+}
+
+.profile a {
+  color: inherit;
+}
+
+.profile a:focus-visible {
+  outline-color: #fff;
 }
 
 .portrait {
