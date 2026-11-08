@@ -126,6 +126,33 @@ article {
   font-size: 0.9375rem;
 }
 
+.metric-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.metric-gallery figure {
+  margin: 0;
+}
+
+.metric-gallery figure > a,
+.metric-gallery img {
+  display: block;
+}
+
+.metric-gallery img {
+  width: 100%;
+  height: auto;
+}
+
+.metric-gallery figcaption {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
 @media (max-width: 34rem) {
   .profile {
     flex-direction: column;
