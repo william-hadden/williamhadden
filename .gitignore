@@ -6,3 +6,4 @@ vendor
 Gemfile.lock
 commands.txt
 todo.md
+assets/hidden/
